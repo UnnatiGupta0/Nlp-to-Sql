@@ -30,7 +30,7 @@ pip install transformers torch pandas
 
 ```
 
- 2. Run the App
+### 2. Run the App
 ```bash
 python app.py
 ```
