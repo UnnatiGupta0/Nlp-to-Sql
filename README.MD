@@ -15,7 +15,8 @@ It’s built on a custom employee dataset and can be run both on Google Colab an
 ---
 ## Demo
 
-![Demo Screenshot](demo%20ss.jpeg)
+![Demo Screenshot](demo%20ss.png)
+
 
 
 ##  How to Run the App Locally (on your Mac)
@@ -27,9 +28,14 @@ Open Terminal and run:
 ```bash
 pip install transformers torch pandas
 
-### 2. Run the App
+```
+
+ 2. Run the App
 ```bash
 python app.py
+```
+
+
 
 Type an English question (e.g. Show all employees in the Sales department).
 The model will output the corresponding SQL query.
