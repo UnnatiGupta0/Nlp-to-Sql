@@ -1,6 +1,8 @@
-# 🧠 NLP to SQL Converter
+# NLP to SQL Converter
 
-This project fine-tunes a T5 model to convert English questions into SQL queries using a custom employee dataset.
+A simple yet functional project where I fine-tuned a T5 model to translate everyday English questions into SQL queries.  
+It’s built on a custom employee dataset and can be run both on Google Colab and locally through the terminal.
+
 
 ## 📁 Files Included
 
@@ -11,8 +13,11 @@ This project fine-tunes a T5 model to convert English questions into SQL queries
 - `README.md` – This file
 
 ---
+## Demo
 
-## 🚀 How to Run the App Locally (on your Mac)
+![Demo Screenshot](demo%20ss.jpeg)
+
+##  How to Run the App Locally (on your Mac)
 
 ### 1. Install dependencies
 
@@ -20,3 +25,12 @@ Open Terminal and run:
 
 ```bash
 pip install transformers torch pandas
+
+### 2. Run the App
+```bash
+python app.py
+
+Type an English question (e.g. Show all employees in the Sales department).
+The model will output the corresponding SQL query.
+
+
