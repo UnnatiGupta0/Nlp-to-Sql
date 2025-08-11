@@ -17,6 +17,7 @@ It’s built on a custom employee dataset and can be run both on Google Colab an
 
 ![Demo Screenshot](demo%20ss.jpeg)
 
+
 ##  How to Run the App Locally (on your Mac)
 
 ### 1. Install dependencies
