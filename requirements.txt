@@ -1,0 +1,6 @@
+transformers>=4.40
+torch
+sentencepiece
+accelerate
+pandas
+gradio
