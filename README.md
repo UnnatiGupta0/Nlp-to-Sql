@@ -40,8 +40,12 @@ Run `python train.py` to reproduce; numbers are written to `results/results.json
 
 | Model | Train pairs | Execution accuracy | Simple | Aggregation | Join | Subquery |
 |---|---|---|---|---|---|---|
-| Baseline | 1,000 | _run to fill_ | | | | |
-| Improved | 2,000 | _run to fill_ | | | | |
+| Baseline | 1,000 | **45.7%** | 91.3% | 0% | 0% | 0% |
+| Improved | 2,000 | **94.7%** | 89.3% | 100% | 100% | 100% |
+
+Held-out test set: 300 questions (150 simple, 150 complex). t5-small, 8 epochs, Colab T4 GPU (training: 1.0 min baseline, 2.4 min improved).
+
+**Error analysis.** The baseline got 0% on every complex category: it had never seen JOINs, GROUP BY or subqueries, so it forced them into single-table queries (e.g. `COUNT(*) FROM employees WHERE doj > 'React'` for a tech-stack question). Its simple-query misses were name-copying errors (`'Sandra'` → `'Suzan'`). Adding targeted pairs fixed all three complex categories, at a small cost on simple queries (91.3% → 89.3%, 3 of 150).
 
 ## Run it
 
@@ -56,5 +60,7 @@ Or open `notebooks/nlp_to_sql_v2.ipynb` in Google Colab and Run all.
 
 ## Limitations
 
-- Templated questions: the model is strong on these patterns but will struggle with phrasings far from the training data.
+- **In-distribution test.** Test questions are held out, but they come from the same templates as training, so 100% on complex categories shows the model learned those patterns, not that it handles any phrasing. Execution accuracy equals exact match for both models for the same reason.
+- **Unseen values.** The model copies values it saw in training well, but not new ones: *"How many female employees are from India?"* produced `country = 'Inde'`, because India (3 employees) was below the 4-employee cut-off used for templates. Fixes: include every value in training, use a bigger model, or constrain generation to values that exist in the database.
+- The data is synthetic (Faker), so names and genders don't always match; query results can look odd even when the SQL is right.
 - One fixed schema; a new database would need new training pairs. For many schemas, prompting a large LLM with the schema is the more flexible choice; a small fine-tuned model wins on cost, latency and privacy for one fixed schema.

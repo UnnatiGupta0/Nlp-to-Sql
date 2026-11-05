@@ -34,8 +34,8 @@ demo = gr.Interface(
     outputs=[gr.Code(label="Generated SQL", language="sql"), gr.Dataframe(label="Result"), gr.Textbox(label="Status")],
     title="NLP to SQL (fine-tuned T5-small)",
     description="Tables: employees, projects, emp_project, milestones, proj_delivery.",
-    examples=["How many female employees are from India?", "Which male employees work on Python projects?",
-              "Show employees from India working on more than 2 projects", "How many projects use Java?"],
+    examples=["How many female employees are from Thailand?", "Which male employees work on Python projects?",
+              "Show employees from Thailand working on more than 2 projects", "How many projects use Java?"],
 )
 
 if __name__ == "__main__":

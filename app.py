@@ -25,7 +25,7 @@ def generate_sql(question):
 
 
 print("Tables: employees, projects, emp_project, milestones, proj_delivery")
-print("Try: 'How many female employees are from India?' or 'Which male employees work on Python projects?'")
+print("Try: 'How many female employees are from Thailand?' or 'Which male employees work on Python projects?'")
 while True:
     q = input("\nAsk your question (or type 'exit'): ").strip()
     if q.lower() == "exit":
