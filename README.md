@@ -1,5 +1,7 @@
 # NLP to SQL — fine-tuned T5
 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/UnnatiGupta0/Nlp-to-Sql/blob/main/notebooks/nlp_to_sql_v2.ipynb)
+
 Turns plain-English business questions into SQL that runs on a 5-table company database, and shows how **targeted training data** fixes the query types a model fails on.
 
 ```
