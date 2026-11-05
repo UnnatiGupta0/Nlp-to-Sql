@@ -60,7 +60,7 @@ def predict(model, tok, questions, bs=32):
     model.eval()
     out = []
     for i in range(0, len(questions), bs):
-        batch = tok([PREFIX + q for q in questions[i:i + bs]], return_tensors="pt", padding=True)
+        batch = tok([PREFIX + q for q in questions[i:i + bs]], return_tensors="pt", padding=True).to(model.device)
         gen = model.generate(**batch, max_new_tokens=128)
         out += tok.batch_decode(gen, skip_special_tokens=True)
     return out
