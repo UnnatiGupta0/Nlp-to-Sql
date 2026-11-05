@@ -49,6 +49,15 @@ Held-out test set: 300 questions (150 simple, 150 complex). t5-small, 8 epochs, 
 
 ## Run it
 
+**Quick demo, no training needed.** The trained model is on Hugging Face: [Unnz/nlp-to-sql-t5](https://huggingface.co/Unnz/nlp-to-sql-t5)
+
+```bash
+pip install -r requirements.txt
+MODEL_ID=Unnz/nlp-to-sql-t5 python gradio_app.py   # web demo at http://127.0.0.1:7860
+```
+
+**Full experiment:**
+
 ```bash
 pip install -r requirements.txt
 python train.py          # ~3 min on a Colab T4 GPU, ~25 min on a laptop CPU
